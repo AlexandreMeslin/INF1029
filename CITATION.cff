@@ -1,0 +1,38 @@
+cff-version: 1.2.0
+message: "If you use this repository in academic work, please cite it as follows."
+title: "INF1029 - Introdução à Arquitetura de Computadores"
+version: "2026.1"
+doi: null
+url: "[https://github.com/AlexandreMeslin/INF1029](https://github.com/AlexandreMeslin/INF1029)"
+abstract: "Material didático e código-fonte da disciplina INF1029 (Introdução à Arquitetura de Computadores) da Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio). O repositório contém exemplos, exercícios, templates e projetos utilizados em aula."
+keywords:
+  - computer architecture
+  - projeto de hardware
+  - ensino
+  - PUC-Rio
+  - GitHub Classroom
+authors:
+  - family-names: "Meslin"
+    given-names: "Alexandre"
+    affiliation: "Departamento de Informática, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)"
+    orcid: "[https://orcid.org/0000-0002-2038-043X](https://orcid.org/0000-0002-2038-043X)"
+    license: "MIT"
+    title: "INF1029 - Introdução à Arquitetura de Computadores"
+    year: 2026
+    version: "2026.1"
+    url: "[https://github.com/AlexandreMeslin/INF1029](https://github.com/AlexandreMeslin/INF1029)"
+preferred-citation:
+  type: software
+  title: "INF1029 - Introdução à Arquitetura de Computadores"
+  version: "2026.1"
+  url: "[https://github.com/AlexandreMeslin/INF1029](https://github.com/AlexandreMeslin/INF1029)"
+  authors:
+    - family-names: "Meslin"
+      given-names: "Alexandre"
+      affiliation: "Departamento de Informática, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio)"
+      orcid: "[https://orcid.org/0000-0002-2038-043X](https://orcid.org/0000-0002-2038-043X)"
+      license: "MIT"
+      title: "INF1029 - Introdução à Arquitetura de Computadores"
+      year: 2026
+      version: "2026.1"
+      url: "[https://github.com/AlexandreMeslin/INF1029](https://github.com/AlexandreMeslin/INF1029)"
