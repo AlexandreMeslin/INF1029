@@ -3,6 +3,17 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * This program detects the CPU features available on the system by using the __get_cpuid and __get_cpuid_count functions to query the CPUID instruction.
+ * It retrieves the CPU vendor string and checks for the presence of various SIMD instruction set extensions such as MMX, SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, AVX, FMA, AVX2, and AVX-512F.
+ * The results are printed to the console, indicating which features are supported by the CPU.
+ * 
+ * To compile this program, you can use a C compiler that supports the CPUID intrinsics, such as GCC or Clang. For example:
+ * gcc -Wall -o detect_cpu_features detect_cpu_features.c
+ * 
+ * To run the compiled program, simply execute it from the command line:
+ * ./detect_cpu_features
+ */
 int main(int argc, char *argv[]) {
   char YES[]="YES", NO[]="NO";
 
