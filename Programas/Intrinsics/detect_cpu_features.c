@@ -80,7 +80,7 @@ int main(int argc, char *argv[]) {
     }
     has_avx2 = ebx & bit_AVX2;
 
-    __get_cpuid(7, 0, &eax, &ebx, &ecx, &edx);
+    __get_cpuid(0, &eax, &ebx, &ecx, &edx);
     has_avx512f = ebx & bit_AVX512F;
 
     printf("AVX2 = %s\n", has_avx2 ? YES : NO);
