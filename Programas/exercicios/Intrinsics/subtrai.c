@@ -6,7 +6,7 @@
 #include "comum.h"
 
 // Constantes
-#define QTD (10000000 * 8)
+#define QTD (100000000 * 8)
 
 // Protótipos
 void exibeResultado(float *result);
@@ -52,12 +52,14 @@ int main(void) {
     start_time = clock();
     subSemAVX(result, a, b);
     stop_time = clock();
+
     printf("\nTempo gasto sem AVX: %f ms\n", timedifference_msec(start_time, stop_time));
     exibeResultado(result);
 
     start_time = clock();
     subComAVX(result, a, b);
     stop_time = clock();
+
     printf("\nTempo gasto com AVX: %f ms\n", timedifference_msec(start_time, stop_time));
     exibeResultado(result);
 

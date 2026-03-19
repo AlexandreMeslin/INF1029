@@ -41,6 +41,15 @@ void exibeVetor(data_t *hvB, int nIncognitas) {
     fprintf(stderr, "============================================\n");
 }
 
+/**
+ * Função leMatriz: lê uma matriz de um arquivo binário.<br>
+ * O arquivo deve conter nIncognitas*nIncognitas elementos do tipo data_t, 
+ * armazenados em formato binário.
+ * 
+ * @param nome  nome do arquivo a ser lido
+ * @param nIncognitas  número de incógnitas (tamanho da matriz)
+ * @return  ponteiro para a matriz lida
+ */
 data_t *leMatriz(char *nome, int nIncognitas) {
     data_t *hmA;
     FILE *arq;
