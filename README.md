@@ -58,3 +58,12 @@
 ![PUC-Rio](https://img.shields.io/badge/Institution-PUC--Rio-003366)
 ![Semester](https://img.shields.io/badge/Semester-2026.1-lightgrey)
 ![Educational](https://img.shields.io/badge/Educational-Repository-brightgreen)
+
+# Dicas quentes!
+
+1. O IntelliSense não mostra os comentários no formato `Doxygen`
+
+   - Solução:
+   Digite `Ctrl+,`, procure por `C_Cpp: Intelli Sense Engine` e coloque como `Default`.
+
+ 
