@@ -1,0 +1,5 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title="The main function that creates multiple threads to execute the printHello function with arguments." alt="" coords="5,5,60,31"/>
+<area shape="rect" id="Node000002" href="$args__pthread_8c.html#a010db3c6c83f299d8c6d5eae36a4df7c" title="The function executed by each thread to print a message with an offset." alt="" coords="108,5,195,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,15,94,15,94,21,60,21"/>
+</map>

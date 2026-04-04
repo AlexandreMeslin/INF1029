@@ -1,0 +1,98 @@
+\doxysection{join\+\_\+pthread.\+c File Reference}
+\hypertarget{join__pthread_8c}{}\label{join__pthread_8c}\index{join\_pthread.c@{join\_pthread.c}}
+
+
+A simple program that creates several threads, each performing a busy work, and waits for them to complete using pthread\+\_\+join.  
+
+
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+Include dependency graph for join\+\_\+pthread.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{join__pthread_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{join__pthread_8c_a7735206bdfad487588bba2126b806ab7}\label{join__pthread_8c_a7735206bdfad487588bba2126b806ab7} 
+\#define {\bfseries NUM\+\_\+\+THREADS}~4
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{join__pthread_8c_a59d1a2a908a296fd186fb264df01d797}{busy\+Work}} (void \texorpdfstring{$\ast$}{*}t)
+\begin{DoxyCompactList}\small\item\em The function executed by each thread to perform a busy work. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{join__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The main function that creates multiple threads to execute the busy\+Work function and waits for them to complete. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple program that creates several threads, each performing a busy work, and waits for them to complete using pthread\+\_\+join. 
+
+This program demonstrates how to create threads, perform some work in each thread, and then wait for all threads to finish before exiting the main program. Compile with\+: gcc -\/Wall -\/Wextra -\/o join\+\_\+pthread \doxylink{join__pthread_8c}{join\+\_\+pthread.\+c} -\/lpthread -\/lm Run with\+: ./join\+\_\+pthread 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{join__pthread_8c_a59d1a2a908a296fd186fb264df01d797}\label{join__pthread_8c_a59d1a2a908a296fd186fb264df01d797} 
+\index{join\_pthread.c@{join\_pthread.c}!busyWork@{busyWork}}
+\index{busyWork@{busyWork}!join\_pthread.c@{join\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{busyWork()}{busyWork()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} busy\+Work (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{t }\end{DoxyParamCaption})}
+
+
+
+The function executed by each thread to perform a busy work. 
+
+The function to be executed by each thread. It takes a single argument, which is the thread ID, and performs a busy work by calculating a result using sine and tangent functions in a loop. After completing the work, it prints the result and calls pthread\+\_\+exit to terminate the thread, returning the thread ID as the exit status.
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & A pointer to the thread ID, which is cast to a long integer for printing and returning as the exit status. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL The function does not return a value, as it calls pthread\+\_\+exit to terminate the thread and return the thread ID as the exit status. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{join__pthread_8c_a59d1a2a908a296fd186fb264df01d797_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{join__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{join__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{join\_pthread.c@{join\_pthread.c}!main@{main}}
+\index{main@{main}!join\_pthread.c@{join\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The main function that creates multiple threads to execute the busy\+Work function and waits for them to complete. 
+
+The main function creates a specified number of threads (defined by NUM\+\_\+\+THREADS) and assigns each thread to execute the busy\+Work function. It initializes a thread attribute structure and sets it to joinable, allowing the main thread to wait for each created thread to complete. After creating all threads, the main function calls pthread\+\_\+join to wait for each thread to finish before terminating the program.
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & The number of command-\/line arguments. \\
+\hline
+{\em argv} & An array of command-\/line arguments. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 The main function does not return a value, as it calls pthread\+\_\+exit to terminate the program. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{join__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}

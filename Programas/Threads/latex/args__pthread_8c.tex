@@ -1,0 +1,95 @@
+\doxysection{args\+\_\+pthread.\+c File Reference}
+\hypertarget{args__pthread_8c}{}\label{args__pthread_8c}\index{args\_pthread.c@{args\_pthread.c}}
+
+
+A simple program that demonstrates how to pass arguments to threads using the pthread library in C.  
+
+
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for args\+\_\+pthread.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{args__pthread_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structthread__data}{thread\+\_\+data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{args__pthread_8c_a7735206bdfad487588bba2126b806ab7}\label{args__pthread_8c_a7735206bdfad487588bba2126b806ab7} 
+\#define {\bfseries NUM\+\_\+\+THREADS}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{args__pthread_8c_a010db3c6c83f299d8c6d5eae36a4df7c}{print\+Hello}} (void \texorpdfstring{$\ast$}{*}threadarg)
+\begin{DoxyCompactList}\small\item\em The function executed by each thread to print a message with an offset. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{args__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The main function that creates multiple threads to execute the print\+Hello function with arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple program that demonstrates how to pass arguments to threads using the pthread library in C. 
+
+This program demonstrates how to pass arguments to threads using the pthread library in C. Each thread receives a structure containing its ID, an offset, and a message to print. Compile with\+: gcc -\/Wall -\/Wextra -\/o args\+\_\+pthread \doxylink{args__pthread_8c}{args\+\_\+pthread.\+c} -\/lpthread Run with\+: ./args\+\_\+pthread 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{args__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{args__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{args\_pthread.c@{args\_pthread.c}!main@{main}}
+\index{main@{main}!args\_pthread.c@{args\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The main function that creates multiple threads to execute the print\+Hello function with arguments. 
+
+The main function creates a specified number of threads (defined by NUM\+\_\+\+THREADS) and assigns each thread to execute the print\+Hello function. It initializes a \doxylink{structthread__data}{thread\+\_\+data} structure for each thread, which includes the thread ID, an offset, and a message string. Each thread will print a portion of the message string based on its offset. After creating all threads, the main function calls pthread\+\_\+exit to wait for all threads to complete before terminating the program.
+
+\begin{DoxyReturn}{Returns}
+0 The main function does not return a value, as it calls pthread\+\_\+exit to wait for all threads to finish before exiting the program. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{args__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{args__pthread_8c_a010db3c6c83f299d8c6d5eae36a4df7c}\label{args__pthread_8c_a010db3c6c83f299d8c6d5eae36a4df7c} 
+\index{args\_pthread.c@{args\_pthread.c}!printHello@{printHello}}
+\index{printHello@{printHello}!args\_pthread.c@{args\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{printHello()}{printHello()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} print\+Hello (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{threadarg }\end{DoxyParamCaption})}
+
+
+
+The function executed by each thread to print a message with an offset. 
+
+The function to be executed by each thread. It takes a pointer to a \doxylink{structthread__data}{thread\+\_\+data} structure as an argument, which contains the thread ID, an offset, and a message. The function prints a message that includes the thread ID and a portion of the message string based on the offset. After printing the message, it calls pthread\+\_\+exit to terminate the thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em threadarg} & A pointer to the thread data structure. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL The function does not return any value. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{args__pthread_8c_a010db3c6c83f299d8c6d5eae36a4df7c_icgraph}
+\end{center}
+\end{figure}

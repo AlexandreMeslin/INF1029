@@ -1,0 +1,9 @@
+<map id="stack_pthread.c" name="stack_pthread.c">
+<area shape="rect" id="Node000001" title="A simple program that demonstrates how to set the stack size for threads using the pthread library in..." alt="" coords="85,5,210,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,89,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="133,33,76,73,73,68,130,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="114,79,181,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="150,31,150,65,145,65,145,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="205,79,276,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="164,29,216,68,213,72,161,33"/>
+</map>

@@ -1,0 +1,92 @@
+\doxysection{hello\+\_\+pthread.\+c File Reference}
+\hypertarget{hello__pthread_8c}{}\label{hello__pthread_8c}\index{hello\_pthread.c@{hello\_pthread.c}}
+
+
+A simple program that creates several threads, and each thread prints a message.  
+
+
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for hello\+\_\+pthread.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{hello__pthread_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{hello__pthread_8c_a7735206bdfad487588bba2126b806ab7}\label{hello__pthread_8c_a7735206bdfad487588bba2126b806ab7} 
+\#define {\bfseries NUM\+\_\+\+THREADS}~5
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{hello__pthread_8c_a12ee759dd557f948c1adf13c7f8f7749}{print\+Hello}} (void \texorpdfstring{$\ast$}{*}threadid)
+\begin{DoxyCompactList}\small\item\em The function executed by each thread to print a message. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{hello__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The main function that creates multiple threads to execute the print\+Hello function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple program that creates several threads, and each thread prints a message. 
+
+A simple program that creates several threads, and each thread prints a message. Compile with\+: gcc -\/Wall -\/Wextra -\/o hello\+\_\+pthread \doxylink{hello__pthread_8c}{hello\+\_\+pthread.\+c} -\/lpthread Run with\+: ./hello\+\_\+pthread 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{hello__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{hello__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{hello\_pthread.c@{hello\_pthread.c}!main@{main}}
+\index{main@{main}!hello\_pthread.c@{hello\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The main function that creates multiple threads to execute the print\+Hello function. 
+
+The main function creates a specified number of threads (defined by NUM\+\_\+\+THREADS) and assigns each thread to execute the print\+Hello function. It prints a message each time a thread is created, indicating the thread number. After creating all threads, the main function calls pthread\+\_\+exit to wait for all threads to complete before terminating the program.
+
+\begin{DoxyReturn}{Returns}
+0 The main function does not return a value, as it calls pthread\+\_\+exit to wait for all threads to finish before exiting the program. 
+\end{DoxyReturn}
+Array to hold thread identifiers
+
+Variable to hold return code from pthread\+\_\+createHere is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{hello__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
+\Hypertarget{hello__pthread_8c_a12ee759dd557f948c1adf13c7f8f7749}\label{hello__pthread_8c_a12ee759dd557f948c1adf13c7f8f7749} 
+\index{hello\_pthread.c@{hello\_pthread.c}!printHello@{printHello}}
+\index{printHello@{printHello}!hello\_pthread.c@{hello\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{printHello()}{printHello()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} print\+Hello (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{threadid }\end{DoxyParamCaption})}
+
+
+
+The function executed by each thread to print a message. 
+
+The function to be executed by each thread. It takes a single argument, which is the thread ID, and prints a message including that ID. After printing the message, it calls pthread\+\_\+exit to terminate the thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em threadid} & A pointer to the thread ID, which is cast to a long integer for printing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL The function does not return any value, as it calls pthread\+\_\+exit to terminate 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{hello__pthread_8c_a12ee759dd557f948c1adf13c7f8f7749_icgraph}
+\end{center}
+\end{figure}

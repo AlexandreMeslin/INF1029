@@ -1,0 +1,102 @@
+\doxysection{stack\+\_\+pthread.\+c File Reference}
+\hypertarget{stack__pthread_8c}{}\label{stack__pthread_8c}\index{stack\_pthread.c@{stack\_pthread.c}}
+
+
+A simple program that demonstrates how to set the stack size for threads using the pthread library in C.  
+
+
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for stack\+\_\+pthread.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{stack__pthread_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stack__pthread_8c_a51ca9914034cd3e92903476fd4eebbd6}\label{stack__pthread_8c_a51ca9914034cd3e92903476fd4eebbd6} 
+\#define {\bfseries NTHREADS}~4
+\item 
+\Hypertarget{stack__pthread_8c_a0240ac851181b84ac374872dc5434ee4}\label{stack__pthread_8c_a0240ac851181b84ac374872dc5434ee4} 
+\#define {\bfseries N}~1024
+\item 
+\Hypertarget{stack__pthread_8c_a052aa4edc6e9b469700f03e45481cb0b}\label{stack__pthread_8c_a052aa4edc6e9b469700f03e45481cb0b} 
+\#define {\bfseries MEGEXTRA}~1024000
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{stack__pthread_8c_a8d44bdddb81a3013a461774694cc0c88}{dowork}} (void \texorpdfstring{$\ast$}{*}threadid)
+\begin{DoxyCompactList}\small\item\em The function executed by each thread to perform a computation that requires a large stack size. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{stack__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em The main function that creates multiple threads to execute the dowork function with a specified stack size. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{stack__pthread_8c_a324189adc86f9f14b363b10e4f9241f3}\label{stack__pthread_8c_a324189adc86f9f14b363b10e4f9241f3} 
+pthread\+\_\+attr\+\_\+t {\bfseries attr}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple program that demonstrates how to set the stack size for threads using the pthread library in C. 
+
+This program demonstrates how to set the stack size for threads using the pthread library in C. Each thread performs a simple computation that requires a large stack size, and the program shows how to calculate the required stack size and set it using pthread\+\_\+attr\+\_\+setstacksize. Compile with\+: gcc -\/Wall -\/Wextra -\/o stack\+\_\+pthread \doxylink{stack__pthread_8c}{stack\+\_\+pthread.\+c} -\/lpthread Run with\+: ./stack\+\_\+pthread 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{stack__pthread_8c_a8d44bdddb81a3013a461774694cc0c88}\label{stack__pthread_8c_a8d44bdddb81a3013a461774694cc0c88} 
+\index{stack\_pthread.c@{stack\_pthread.c}!dowork@{dowork}}
+\index{dowork@{dowork}!stack\_pthread.c@{stack\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{dowork()}{dowork()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} dowork (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{threadid }\end{DoxyParamCaption})}
+
+
+
+The function executed by each thread to perform a computation that requires a large stack size. 
+
+The function to be executed by each thread. It takes a single argument, which is the thread ID, and performs a simple computation that requires a large stack size by creating a large 2D array and filling it with values. After completing the computation, it prints the stack size used by the thread and calls pthread\+\_\+exit to terminate the thread.
+
+
+\begin{DoxyParams}{Parameters}
+{\em threadid} & A pointer to the thread ID, which is cast to a long integer for printing. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+NULL The function does not return any value, as it calls pthread\+\_\+exit to terminate the thread. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{stack__pthread_8c_a8d44bdddb81a3013a461774694cc0c88_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{stack__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{stack__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{stack\_pthread.c@{stack\_pthread.c}!main@{main}}
+\index{main@{main}!stack\_pthread.c@{stack\_pthread.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+The main function that creates multiple threads to execute the dowork function with a specified stack size. 
+
+The main function initializes a thread attribute structure, calculates the required stack size for each thread based on the size of the 2D array and an additional buffer, and sets the stack size using pthread\+\_\+attr\+\_\+setstacksize. It then creates a specified number of threads (defined by NTHREADS) and assigns each thread to execute the dowork function. Each thread will print the stack size it is using. After creating all threads, the main function calls pthread\+\_\+exit to wait for all threads to complete before terminating the program.
+
+\begin{DoxyReturn}{Returns}
+0 The main function does not return a value, as it calls pthread\+\_\+exit to wait for all threads to finish before exiting the program. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{stack__pthread_8c_a840291bc02cba5474a4cb46a9b9566fe_cgraph}
+\end{center}
+\end{figure}
