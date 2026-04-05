@@ -66,4 +66,6 @@
    - Solução:
    Digite `Ctrl+,`, procure por `C_Cpp: Intelli Sense Engine` e coloque como `Default`.
 
- 
+1. Como extrair a documentação do programa C/C++
+
+   - Veja em [Distribuição e Concorrência - INF1304](https://github.com/AlexandreMeslin/INF1304/blob/main/README.md#documenta%C3%A7%C3%A3o-do-seu-programa)
