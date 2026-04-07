@@ -13,8 +13,7 @@
 
 #define NUM_THREADS 5
 
-struct thread_data
-{
+struct thread_data {
    long thread_id;
    int offset;
    char *message;
@@ -39,7 +38,16 @@ void *printHello(void *threadarg)
    // Transforma o ponteiro genérico em um ponteiro para a estrutura thread_data
    my_data = (struct thread_data *)threadarg;
 
-   printf("Thread #%ld: %s\n", my_data->thread_id, my_data->message + my_data->offset);
+   /*
+   struct thread_data {
+      long thread_id;
+      int offset;
+      char *message;= "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   };
+   */
+   printf("Thread #%ld: %s\n", 
+         my_data->thread_id, 
+         my_data->message + my_data->offset);
 
    /* a última coisa que toda thread deve fazer */
    pthread_exit(NULL);

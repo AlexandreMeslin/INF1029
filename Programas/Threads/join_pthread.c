@@ -29,6 +29,7 @@ void *busyWork(void *t) {
 
     tid = (long)t;
     printf("Thread %ld starting...\n",tid);
+    // realiza a transmogrifação de um número grande de iterações para simular um trabalho pesado
     for (int i=0; i<100000000; i++) {
        result = result + sin(i) * tan(i);
     }
