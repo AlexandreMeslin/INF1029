@@ -1,20 +1,24 @@
 /**
  * @file wait_signal_pthread.c
-
- * This program demonstrates how to use condition variables to synchronize threads.  
- * The program creates three threads: one thread waits for a condition to be met (watch_count), 
- * while the other two threads increment a shared variable (count) until it reaches a specified limit (COUNT_LIMIT). 
- * When the count reaches the limit, the waiting thread is signaled to proceed. 
- * The program also demonstrates the use of mutexes to protect access to the shared variable and ensure thread safety.
- * The main function initializes the mutex and condition variable, 
- * creates the threads, and waits for them to complete before cleaning up resources and exiting the program.
+ * FILE: condvar.c
+ * DESCRIPTION:
+ *   Example code for using Pthreads condition variables.  The main thread
+ *   creates three threads.  Two of those threads increment a "count" variable,
+ *   while the third thread watches the value of "count".  When "count" 
+ *   reaches a predefined limit, the waiting thread is signaled by one of the
+ *   incrementing threads. The waiting thread "awakens" and then modifies
+ *   count. The program continues until the incrementing threads reach
+ *   TCOUNT. The main program prints the final value of count.
+ * SOURCE: Adapted from example code in "Pthreads Programming", B. Nichols
+ *   et al. O'Reilly and Associates. 
+ * LAST REVISED: 10/14/10  Blaise Barney
  * To compile the program, use the following command: gcc -Wall -Wextra -o wait_signal_pthread wait_signal_pthread.c -lpthread
  * To run the program, use the command: ./wait_signal_pthread
  * 
- * @author  unknown
+ * @author  B. Nichols et al.
  * @version 1.0
- * @date    unknown
- * 
+ * @date    2010-10-14
+ * @copyright 2010 O'Reilly and Associates, Inc. All rights reserved.
  * @note    This program is intended for educational purposes to demonstrate the use of condition variables and mutexes in C with pthreads.
  */
 #include <pthread.h>
@@ -28,7 +32,7 @@
 
 int     count = 0;                        // Quantidade de itens produzidos ainda não consumidos.
 long    thread_ids[3] = {0,1,2};          // array holds the thread IDs for the three threads created in the main function. The IDs are used to identify the threads when printing messages about their actions.
-pthread_mutex_t count_mutex;              // mutex is used to protect access to the count variable, ensuring that only one thread can modify or read the count variable at a time to
+pthread_mutex_t count_mutex;              // mutex is used to protect access to the count variable, ensuring that only one thread can modify or read the count variable at a time to avoid race conditions.
 pthread_cond_t count_threshold_cond_var;  // condition variable is used to signal the waiting thread (watch_count) when the count variable reaches the specified limit (COUNT_LIMIT). The inc_count threads signal this condition variable when they update the count variable and it reaches the limit.
 
 /**
