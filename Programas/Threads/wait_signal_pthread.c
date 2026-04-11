@@ -21,6 +21,7 @@
  * @copyright 2010 O'Reilly and Associates, Inc. All rights reserved.
  * @note    This program is intended for educational purposes to demonstrate the use of condition variables and mutexes in C with pthreads.
  */
+
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,6 +1,10 @@
 /**
  * @file mutex_pthread.c
  * 
+ * Esta é a versão 2 do programa mutex_pthread.c, que calcula o produto escalar de dois vetores usando threads.
+ * Nessa versão, o programa foi modificado para alocar sempre a mesma quantidade de memória para os vetores, independentemente do número de threads. 
+ * Cada thread calcula uma porção do produto escalar e atualiza uma variável de soma compartilhada.
+ * 
  * This program calculates the dot product of two vectors using threads.
  * Each thread calculates a portion of the dot product and updates a shared sum variable.
  * A mutex is used to protect the critical section where the shared sum variable is updated.
@@ -30,7 +34,8 @@ typedef struct {
  * The number of threads and the length of the slice of the arrays that each thread will process are defined as constants.
  */
 #define NUMTHRDS 1
-#define SLICELEN 100000000
+#define PROBLEMLEN 1000000000
+#define SLICELEN (PROBLEMLEN / NUMTHRDS)
 
 DOTDATA dotstr;
 pthread_t threads[NUMTHRDS];
@@ -99,10 +104,10 @@ int main(void) {
    tempoInicial = clock();
 
    /* Assign storage and initialize values */
-   a = (double *)malloc(NUMTHRDS * SLICELEN * sizeof(double));
-   b = (double *)malloc(NUMTHRDS * SLICELEN * sizeof(double));
+   a = (double *)malloc(PROBLEMLEN * sizeof(double));
+   b = (double *)malloc(PROBLEMLEN * sizeof(double));
 
-   for (i = 0; i < SLICELEN * NUMTHRDS; i++) {
+   for (i = 0; i < PROBLEMLEN; i++) {
       a[i] = 1.0;
       b[i] = a[i];
    }
@@ -144,7 +149,7 @@ int main(void) {
    tempoDecorrido = (tempoFinal - tempoInicial) / CLOCKS_PER_SEC * 1000;
 
    /* After joining, print out the results and cleanup */
-   printf("Sum =  %f em %lf s\n", dotstr.sum, tempoDecorrido);
+   printf("Sum =  %f em %lf ms\n", dotstr.sum, tempoDecorrido);
    free(a);
    free(b);
    pthread_mutex_destroy(&mutexsum);
